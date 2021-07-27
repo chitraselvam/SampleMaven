@@ -85,7 +85,46 @@ public class TestSample extends BaseClass{
 			base.btnClick(btnSearch);
 		}
 		
-		
+		@Test
+		public void tc3() {
+			SearchHotel book=new SearchHotel();
+			WebElement txtFirstName = book.getTxtFirstName();
+			base.typeText(txtFirstName, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 22, 1));
+			Assert.assertEquals(txtFirstName.getAttribute("value"), "Selvam");
+			
+			
+			WebElement txtLastName = book.getTxtLastName();
+			base.typeText(txtLastName, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 23, 1));
+			Assert.assertEquals(txtLastName.getAttribute("value"), "Annamalai");
+			
+			WebElement txtBillingaddress = book.getTxtBillingaddress();
+			base.typeText(txtBillingaddress, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 24, 1));
+			Assert.assertEquals(txtBillingaddress.getAttribute("value"), "No 12 ,Jagadambal street,Tnagar");
+			
+			WebElement txtCardNumber = book.getTxtCardNumber();
+			base.typeText(txtCardNumber, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 25, 1));
+			Assert.assertEquals(txtCardNumber.getAttribute("value"), "1234567890567890");
+			
+			WebElement txtCardType = book.getTxtCardType();
+			base.selectByDropDown("value", txtCardType, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 26, 1));
+			Assert.assertEquals(txtCardType.getAttribute("value"), "MAST");
+			
+			WebElement drpdwnExpiryMonth = book.getDrpdwnExpiryMonth();
+			base.selectByDropDown("value", drpdwnExpiryMonth, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 27, 1));
+			Assert.assertEquals(drpdwnExpiryMonth.getAttribute("value"), "8");
+			
+			WebElement drpdwnExpiryYear = book.getDrpdwnExpiryYear();
+			base.selectByDropDown("value", drpdwnExpiryYear, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 27, 2));
+			Assert.assertEquals(drpdwnExpiryYear.getAttribute("value"), "2022");
+			
+			WebElement txtCCV = book.getTxtCCV();
+			base.typeText(txtCCV, base.getDataFromExcel("C:\\Users\\Dell\\eclipse-workspace\\WorkbookTask\\TestData\\AdactinHotel.xlsx", "Sheet1", 28, 1));
+			Assert.assertEquals(txtCCV.getAttribute("value"), "721");
+			
+			WebElement btnBookNow = book.getBtnBookNow();
+			base.btnClick(btnBookNow);
+
+		}
 
 	}
 
